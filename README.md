@@ -7,6 +7,11 @@ Get all issues for applications in your environment
 Type=UAApp | measure count() by Issue
 ```
 
+Get all ReadyForWindows Status and count
+```
+Type=UAApp | measure count() by ReadyForWindows
+```
+
 Get apps with a specific issue
 ```
 Type=UAApp Issue="Application is removed during upgrade" RollupLevel=Granular |measure count() by AppName
