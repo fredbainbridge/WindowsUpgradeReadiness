@@ -76,7 +76,10 @@ Function Get-WUApplication
     write-output $apps
 }
 
+#Install OMS module.
+#Hat tip to Ryan Ephgrave for -Scope
 Find-Module AzureRM.OperationalInsights | Install-Module -Scope CurrentUser
+
 Login-AzureRmAccount
 $AllIssue = Get-WUApplicationStatus -Verbose 
 foreach($issue in $AllIssue)
