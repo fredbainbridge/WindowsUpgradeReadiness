@@ -1,3 +1,4 @@
+#identify all blockers for a device'
 Find-Module AzureRM.OperationalInsights | Install-Module
 Import-Module AzureRm.OperationalInsights
 Get-Module AzureRm.OperationalInsights
@@ -8,10 +9,10 @@ $ResourceGroupName = "mms-eus"
 $WorkSpaceName = "cmlab"
 
 $query = Get-AzureRmOperationalInsightsSavedSearch -ResourceGroupName $ResourceGroupName -WorkspaceName $WorkSpaceName
-$query.value |FL
+$query.value |FL | out-null
 
 #Get all bad apps for a device
-$ComputerName = 'WIN7-15'
+$ComputerName = 'WIN7-05'
 $query = "Computer=$ComputerName Type=UASysReqIssue UpgradeAssessment!=""Seamless upgrade"" UpgradeAssessment!=""No known issues"""
 $endDate = get-date -format u
 $startDate = ((get-date).AddDays(-1)).ToString("u") 
